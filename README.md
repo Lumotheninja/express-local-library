@@ -93,7 +93,7 @@ Functions in modules that has the callback argument expects the callback in this
 ## express-validator
 Validation of data is a pretty important job as people might send rubbish data through forms and APIs. While you can control the data through form with some frontend validators, you usually can't control the API endpoints so validation also needs to be done in the backend. Express-validator is a library that allows you to validate and sanitize the data coming in. Sanitization basically means making sure the data doesn't contain malicious code such as those that can lead to [SQL injection](https://www.youtube.com/watch?v=_jKylhJtPmI).
 
-# Future features:
+# future features:
 I think node is a pretty cool framework and this setup is pretty much the MEAN stack (mongoDB, express, angular, node.js), which I think is pretty popular. Besides, I happen to keep a read list in an excel file and I hope to port my file to the web application:
 
 1. Have a dashboard that shows reading stats
