@@ -21,7 +21,7 @@ It creates default files for your web app when you call `express` such as templa
 Mvc stands for model-view-controller, a standard architecture to create applications and supported natively by express. Basically users see a view and uses a controller to submit an action. The action interacts with the model which is a database object wrapped in OOP code (it supports CRUD - create, read, update, delete directly on the db). The points of interactions are called endpoints which are represented by URL. The mapper between endpoints and controllers are called routers.
 
 ## schema
-Schema basically means the OOP modelling of the database object. For example, what is its name, id and attributes. Usually only relational database has schema as they need to be well defined in order to be stored. Indeed, when you have slight change to the schema you would need to call a migrate on the db to move the data to the new schema. Why does MongoDB has a schema? This [article](http://billpatrianakos.me/blog/2016/07/07/mongodb-and-mongoose-why-define-a-schema/) tells us that basically its for ease of usage in our web application
+Schema basically means the OOP modelling of the database object. For example, what is its name, id and attributes. Usually only relational database has schema as they need to be well defined in order to be stored. Indeed, when you have slight change to the schema you would need to call a migrate on the db to move the data to the new schema but not for non-relational dbs as they are supposed to be able to store untidy data. Why does MongoDB has a schema? This [article](http://billpatrianakos.me/blog/2016/07/07/mongodb-and-mongoose-why-define-a-schema/) tells us that basically its for ease of usage in our web application
 
 ## callbacks
 Now this is a pretty funky new topic for me. I was stunned by the async module used in the code
@@ -78,7 +78,7 @@ I couldn't fathom how did the first function in async.parallel would know what a
             
     async_parallel([a, b], c)
     
-Passing functions which calls other functions within functions certainly creates a lot of confusion, but this is a concept in functional programming. Callbacks are really important in js as many functions in js runs asynchronously (You write some program to fetch data from Google, you don't know when it will return) . Callbacks are basically checkpoints where you can gather the results of the various functions that has been running asynchronously. A typical callback has the following form:
+Passing functions which calls other functions within functions certainly creates a lot of confusion, but this is a concept in functional programming. Callbacks are really important in js as many functions in JS runs asynchronously (You write some program to fetch data from Google, you don't know when it will return) . Callbacks are basically checkpoints where you can gather the results of the various functions that has been running asynchronously. A typical callback has the following form:
 
     callback: function (err, results) {
         if (err) {
@@ -88,14 +88,15 @@ Passing functions which calls other functions within functions certainly creates
         }
     }
     
-Functions in modules that has the callback argument expects the callback in this form and will call them when they return (hence the name "Call-back"). A bad programming practice is [callback hell](http://callbackhell.com/), where you try to force programs to be synchronous by daisy chaining them together. A better way to do it is to analyze the various functions, determine which one can be callback together and tie them up manually or with some library like async. There also exist other solutions to this asynchronous problem (e.g. promise framework)
+Functions in modules that has the callback argument expects the callback in this form and will call them when they return (hence the name "Call-back"). A bad programming practice is [callback hell](http://callbackhell.com/), where you try to force programs to be synchronous by daisy chaining them together. A better way to do it is to analyze the various functions, determine which one can be callback together and tie them up manually or with some library like async. There also exist other solutions to this asynchronous problem (e.g. promise framework).
 
 ## express-validator
-Validation of data is a pretty important job as people might send rubbish data through forms and APIs. While you can control the data through form with some frontend validators, you usually can't control the API endpoints so validation also needs to be done in the backend. Express-validator is a library that allows you to validate and sanitize the data coming in. Sanitization basically means making sure the data doesn't contain malicious code such as those that can lead to [SQL injection](https://www.youtube.com/watch?v=_jKylhJtPmI)
+Validation of data is a pretty important job as people might send rubbish data through forms and APIs. While you can control the data through form with some frontend validators, you usually can't control the API endpoints so validation also needs to be done in the backend. Express-validator is a library that allows you to validate and sanitize the data coming in. Sanitization basically means making sure the data doesn't contain malicious code such as those that can lead to [SQL injection](https://www.youtube.com/watch?v=_jKylhJtPmI).
 
 # Future features:
-I think node is a pretty cool framework and this setup is pretty much the MEAN stack (mongoDB, express, angular, node.js), which I think is pretty popular. Besides, I happen to keep a reading list and I hope to port my file to the web application:
+I think node is a pretty cool framework and this setup is pretty much the MEAN stack (mongoDB, express, angular, node.js), which I think is pretty popular. Besides, I happen to keep a read list in an excel file and I hope to port my file to the web application:
+
 1. Have a dashboard that shows reading stats
-2. Maybe implement some scrapping to see which good books I like
+2. Maybe implement some web scrapping to see which good books I like
 3. Download/upload csv functions
-4. Try random node libraries
+4. Making it look nice with some frontend framework
