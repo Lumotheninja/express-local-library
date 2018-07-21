@@ -1,6 +1,14 @@
 # express-local-library
 A local library website based on [MDN tutorials](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website)
 
+To run in dev mode:  
+SET DEBUG=express-locallibrary-tutorial:* & npm run devstart  
+
+To run normally:  
+npm run start  
+
+The application's default port is 3000
+
 # learning points
 The learning points are my own and not comprehensive:\
 node.js, express, mongodb, express-generator, mvc, schema, callbacks, express-validator.
